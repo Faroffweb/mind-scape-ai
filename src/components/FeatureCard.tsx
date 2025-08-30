@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface FeatureCardProps {
   icon: React.ReactNode;
@@ -10,10 +11,36 @@ interface FeatureCardProps {
 }
 
 export const FeatureCard = ({ icon, title, description, features, gradient }: FeatureCardProps) => {
+  const navigate = useNavigate();
+  
   const gradientClasses = {
     primary: "bg-gradient-primary",
     accent: "bg-gradient-accent", 
     feature: "bg-gradient-feature"
+  };
+
+  const getRouteFromTitle = (title: string) => {
+    switch (title) {
+      case "Text-to-Image":
+        return "/text-to-image";
+      case "Image-to-Video":
+        return "/image-to-video";
+      case "Face Swap":
+        return "/face-swap";
+      case "Character Videos":
+        return "/character-videos";
+      case "Voice Generation":
+        return "/voice-generation";
+      case "Batch Processing":
+        return "/batch-processing";
+      default:
+        return "/dashboard";
+    }
+  };
+
+  const handleTryFeature = () => {
+    const route = getRouteFromTitle(title);
+    navigate(route);
   };
 
   return (
@@ -42,7 +69,11 @@ export const FeatureCard = ({ icon, title, description, features, gradient }: Fe
         </ul>
 
         {/* CTA */}
-        <Button variant="ghost" className="group/btn w-full justify-between">
+        <Button 
+          variant="ghost" 
+          className="group/btn w-full justify-between"
+          onClick={handleTryFeature}
+        >
           Try {title}
           <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
         </Button>
