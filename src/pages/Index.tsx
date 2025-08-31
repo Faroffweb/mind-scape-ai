@@ -4,25 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import heroImage from "@/assets/hero-ai.jpg";
-import { 
-  ImageIcon, 
-  VideoIcon, 
-  UserIcon, 
-  MicIcon, 
-  SparklesIcon,
-  ArrowRight,
-  CheckCircle,
-  Star,
-  Zap,
-  Palette,
-  Play,
-  Users,
-  MessageSquare
-} from "lucide-react";
-
+import { ImageIcon, VideoIcon, UserIcon, MicIcon, SparklesIcon, ArrowRight, CheckCircle, Star, Zap, Palette, Play, Users, MessageSquare } from "lucide-react";
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Navigation />
       
       {/* Hero Section */}
@@ -80,11 +64,7 @@ const Index = () => {
             <div className="relative">
               <div className="absolute -top-10 -left-10 w-20 h-20 bg-ai-purple/20 rounded-full blur-xl" />
               <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-ai-blue/20 rounded-full blur-xl" />
-              <img 
-                src={heroImage} 
-                alt="AI Content Creation Platform" 
-                className="rounded-2xl shadow-glass relative z-10 w-full"
-              />
+              <img src={heroImage} alt="AI Content Creation Platform" className="rounded-2xl shadow-glass relative z-10 w-full" />
             </div>
           </div>
         </div>
@@ -111,83 +91,17 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <FeatureCard
-              icon={<ImageIcon className="w-6 h-6 text-white" />}
-              title="Text-to-Image"
-              description="Generate stunning high-resolution images from text prompts with multiple artistic styles."
-              features={[
-                "Realistic, cartoon, and 3D styles",
-                "4K resolution outputs", 
-                "Custom aspect ratios",
-                "Batch generation support"
-              ]}
-              gradient="primary"
-            />
+            <FeatureCard icon={<ImageIcon className="w-6 h-6 text-white" />} title="Text-to-Image" description="Generate stunning high-resolution images from text prompts with multiple artistic styles." features={["Realistic, cartoon, and 3D styles", "4K resolution outputs", "Custom aspect ratios", "Batch generation support"]} gradient="primary" />
             
-            <FeatureCard
-              icon={<VideoIcon className="w-6 h-6 text-white" />}
-              title="Image-to-Video"
-              description="Bring your images to life with AI-powered animation and scene generation."
-              features={[
-                "Multiple animation styles",
-                "Custom duration controls",
-                "Scene transition effects",
-                "HD video quality"
-              ]}
-              gradient="accent"
-            />
+            <FeatureCard icon={<VideoIcon className="w-6 h-6 text-white" />} title="Image-to-Video" description="Bring your images to life with AI-powered animation and scene generation." features={["Multiple animation styles", "Custom duration controls", "Scene transition effects", "HD video quality"]} gradient="accent" />
             
-            <FeatureCard
-              icon={<UserIcon className="w-6 h-6 text-white" />}
-              title="Face Swap"
-              description="Advanced face replacement technology for videos with natural-looking results."
-              features={[
-                "Real-time processing",
-                "High accuracy matching",
-                "Multiple face support",
-                "Seamless integration"
-              ]}
-              gradient="feature"
-            />
+            <FeatureCard icon={<UserIcon className="w-6 h-6 text-white" />} title="Face Swap" description="Advanced face replacement technology for videos with natural-looking results." features={["Real-time processing", "High accuracy matching", "Multiple face support", "Seamless integration"]} gradient="feature" />
             
-            <FeatureCard
-              icon={<Users className="w-6 h-6 text-white" />}
-              title="Character Videos"
-              description="Create consistent AI characters across multiple scenes and expressions."
-              features={[
-                "Character consistency",
-                "Emotion control",
-                "Scene variations",
-                "Voice synchronization"
-              ]}
-              gradient="primary"
-            />
+            <FeatureCard icon={<Users className="w-6 h-6 text-white" />} title="Character Videos" description="Create consistent AI characters across multiple scenes and expressions." features={["Character consistency", "Emotion control", "Scene variations", "Voice synchronization"]} gradient="primary" />
             
-            <FeatureCard
-              icon={<MicIcon className="w-6 h-6 text-white" />}
-              title="Voice Generation"
-              description="Generate natural-sounding voiceovers in multiple languages and styles."
-              features={[
-                "English & Hindi support",
-                "Male/female voices",
-                "Tone customization",
-                "Real-time preview"
-              ]}
-              gradient="accent"
-            />
+            <FeatureCard icon={<MicIcon className="w-6 h-6 text-white" />} title="Voice Generation" description="Generate natural-sounding voiceovers in multiple languages and styles." features={["English & Hindi support", "Male/female voices", "Tone customization", "Real-time preview"]} gradient="accent" />
             
-            <FeatureCard
-              icon={<Zap className="w-6 h-6 text-white" />}
-              title="Batch Processing"
-              description="Process multiple files simultaneously for maximum productivity."
-              features={[
-                "Queue management",
-                "Progress tracking",
-                "Bulk operations",
-                "Export management"
-              ]}
-              gradient="feature"
-            />
+            <FeatureCard icon={<Zap className="w-6 h-6 text-white" />} title="Batch Processing" description="Process multiple files simultaneously for maximum productivity." features={["Queue management", "Progress tracking", "Bulk operations", "Export management"]} gradient="feature" />
           </div>
         </div>
       </section>
@@ -273,7 +187,7 @@ const Index = () => {
                   <p className="text-muted-foreground">For serious creators</p>
                 </div>
                 <div>
-                  <span className="text-4xl font-bold">$29</span>
+                  <span className="text-4xl font-bold">$10</span>
                   <span className="text-muted-foreground">/month</span>
                 </div>
                 <ul className="space-y-3">
@@ -379,8 +293,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
