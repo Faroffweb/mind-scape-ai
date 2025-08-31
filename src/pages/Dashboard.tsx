@@ -4,6 +4,9 @@ import { FeatureCard } from '@/components/FeatureCard';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useEffect, useState } from 'react';
+import { supabase } from '@/integrations/supabase/client';
+import { useNavigate } from 'react-router-dom';
 import { 
   ImageIcon, 
   VideoIcon, 
@@ -13,14 +16,56 @@ import {
   Zap,
   History,
   Download,
-  Star
+  Star,
+  CreditCard,
+  Plus
 } from 'lucide-react';
 
 const Dashboard = () => {
   const { user, signOut } = useAuth();
+  const navigate = useNavigate();
+  const [credits, setCredits] = useState<number>(0);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      if (!user) return;
+      
+      try {
+        const { data, error } = await supabase
+          .from('profiles')
+          .select('credits')
+          .eq('id', user.id)
+          .single();
+          
+        if (error) {
+          console.error('Error fetching profile:', error);
+        } else {
+          setCredits(data?.credits || 0);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserProfile();
+  }, [user]);
 
   if (!user) {
     return <div>Loading...</div>;
+  }
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        <div className="flex items-center justify-center pt-32">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -37,6 +82,23 @@ const Dashboard = () => {
                   Welcome back, <span className="bg-gradient-primary bg-clip-text text-transparent">{user.email?.split('@')[0]}</span>
                 </h1>
                 <p className="text-muted-foreground">Ready to create something amazing?</p>
+                
+                {/* Credits Display */}
+                <div className="flex items-center space-x-4 mt-4">
+                  <div className="flex items-center space-x-2 bg-gradient-primary/10 px-4 py-2 rounded-lg">
+                    <Zap className="w-5 h-5 text-primary" />
+                    <span className="font-semibold text-lg">{credits.toLocaleString()}</span>
+                    <span className="text-sm text-muted-foreground">Credits</span>
+                  </div>
+                  <Button 
+                    size="sm" 
+                    onClick={() => navigate('/pricing')}
+                    className="flex items-center space-x-2"
+                  >
+                    <Plus className="w-4 h-4" />
+                    <span>Buy More</span>
+                  </Button>
+                </div>
               </div>
               <Button variant="outline" onClick={() => signOut()}>
                 Sign Out
@@ -87,8 +149,8 @@ const Dashboard = () => {
                     <Zap className="w-5 h-5 text-ai-purple" />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold">158</div>
-                    <div className="text-sm text-muted-foreground">Credits Left</div>
+                    <div className="text-2xl font-bold">{credits.toLocaleString()}</div>
+                    <div className="text-sm text-muted-foreground">Available Credits</div>
                   </div>
                 </div>
               </Card>

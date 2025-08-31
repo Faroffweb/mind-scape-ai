@@ -132,6 +132,7 @@ export type Database = {
         Row: {
           avatar_url: string | null
           created_at: string
+          credits: number | null
           full_name: string | null
           id: string
           is_admin: boolean | null
@@ -140,6 +141,7 @@ export type Database = {
         Insert: {
           avatar_url?: string | null
           created_at?: string
+          credits?: number | null
           full_name?: string | null
           id: string
           is_admin?: boolean | null
@@ -148,10 +150,38 @@ export type Database = {
         Update: {
           avatar_url?: string | null
           created_at?: string
+          credits?: number | null
           full_name?: string | null
           id?: string
           is_admin?: boolean | null
           updated_at?: string
+        }
+        Relationships: []
+      }
+      transactions: {
+        Row: {
+          amount: number
+          created_at: string
+          description: string | null
+          id: string
+          type: string
+          user_id: string | null
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          description?: string | null
+          id?: string
+          type: string
+          user_id?: string | null
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          description?: string | null
+          id?: string
+          type?: string
+          user_id?: string | null
         }
         Relationships: []
       }

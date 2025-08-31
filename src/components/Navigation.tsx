@@ -29,15 +29,14 @@ export const Navigation = () => {
               <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
                 Features
               </a>
-              <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="/pricing" className="text-muted-foreground hover:text-foreground transition-colors">
                 Pricing
               </a>
-              <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">
-                About
-              </a>
-              <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">
-                Contact
-              </a>
+              {user && (
+                <a href="/dashboard" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Dashboard
+                </a>
+              )}
             </div>
           </div>
 
@@ -83,15 +82,14 @@ export const Navigation = () => {
               <a href="#features" className="block px-3 py-2 text-muted-foreground hover:text-foreground">
                 Features
               </a>
-              <a href="#pricing" className="block px-3 py-2 text-muted-foreground hover:text-foreground">
+              <a href="/pricing" className="block px-3 py-2 text-muted-foreground hover:text-foreground">
                 Pricing
               </a>
-              <a href="#about" className="block px-3 py-2 text-muted-foreground hover:text-foreground">
-                About
-              </a>
-              <a href="#contact" className="block px-3 py-2 text-muted-foreground hover:text-foreground">
-                Contact
-              </a>
+              {user && (
+                <a href="/dashboard" className="block px-3 py-2 text-muted-foreground hover:text-foreground">
+                  Dashboard
+                </a>
+              )}
               <div className="pt-4 pb-3 border-t border-border">
                 <div className="flex items-center px-5 space-x-3">
                   {user ? (
