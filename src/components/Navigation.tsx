@@ -32,6 +32,9 @@ export const Navigation = () => {
               <a href="/pricing" className="text-muted-foreground hover:text-foreground transition-colors">
                 Pricing
               </a>
+              <a href="/terms-of-sale" className="text-muted-foreground hover:text-foreground transition-colors">
+                Terms
+              </a>
               {user && (
                 <a href="/dashboard" className="text-muted-foreground hover:text-foreground transition-colors">
                   Dashboard
@@ -84,6 +87,9 @@ export const Navigation = () => {
               </a>
               <a href="/pricing" className="block px-3 py-2 text-muted-foreground hover:text-foreground">
                 Pricing
+              </a>
+              <a href="/terms-of-sale" className="block px-3 py-2 text-muted-foreground hover:text-foreground">
+                Terms
               </a>
               {user && (
                 <a href="/dashboard" className="block px-3 py-2 text-muted-foreground hover:text-foreground">
