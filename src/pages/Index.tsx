@@ -80,9 +80,7 @@ const Index = () => {
             </Badge>
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
               Everything You Need for{" "}
-              <span className="bg-gradient-accent bg-clip-text text-transparent">
-                Content Creation
-              </span>
+              <span className="bg-gradient-accent bg-clip-text text-transparent">Model Creation</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Professional-grade AI tools designed for creators, marketers, and businesses 
