@@ -254,9 +254,7 @@ const Index = () => {
           <div className="text-center space-y-8">
             <h2 className="text-4xl lg:text-5xl font-bold">
               Ready to{" "}
-              <span className="bg-gradient-accent bg-clip-text text-transparent">
-                Create Magic?
-              </span>
+              <span className="bg-gradient-accent bg-clip-text text-transparent">create model?</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Join thousands of creators who are already using MindScape AI to bring their wildest ideas to life.
