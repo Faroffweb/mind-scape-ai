@@ -219,7 +219,7 @@ const Index = () => {
                   <p className="text-muted-foreground">For teams and businesses</p>
                 </div>
                 <div>
-                  <span className="text-4xl font-bold">$99</span>
+                  <span className="text-4xl font-bold">$29</span>
                   <span className="text-muted-foreground">/month</span>
                 </div>
                 <ul className="space-y-3">
